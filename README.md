@@ -1,6 +1,6 @@
 # with-react-formidable
 
-A small wrapper of react-router parsing the form params from the location.pathname and match.params
+A small wrapper parsing react-router location and match to provide helpful form contextual properties.
 
 [![CircleCI](https://circleci.com/gh/betagouv/with-react-formidable/tree/master.svg?style=svg)](https://circleci.com/gh/betagouv/with-react-formidable/tree/master)
 [![npm version](https://img.shields.io/npm/v/with-react-formidable.svg?style=flat-square)](https://npmjs.org/package/with-react-formidable)
