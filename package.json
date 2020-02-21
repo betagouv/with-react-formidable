@@ -1,6 +1,6 @@
 {
   "name": "with-react-formidable",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "private": false,
   "main": "lib/index.js",
   "license": "MPL-2.0",
