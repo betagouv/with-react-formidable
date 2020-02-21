@@ -8,15 +8,25 @@ A small wrapper parsing react-router location and match to provide helpful form 
 
 ## Convention
 
-Your app needs to work with a special react-router syntax. Given the url, withFormidable will find by itself if you are in readOnly, creation or modification state. In summary, your React Route needs to be with path = "/foos/:fooId([A-Z0-9]+|creation)/:modification(modification)?", then :
+Your app needs to work with a special react-router pathname syntax. Given the url, withFormidable will find by itself if you are in readOnly, creation or modification state. Render your component with its Route config:
 
+```javascript
+  <Route
+    component={Foo}
+    path='/foos/:fooId([A-Za-z0-9]{2,}|creation)/:modification(modification)?'
+  />
+```
+
+Then :
   - `/foos/AE` is a readOnly url, for the specific fetch of the entity foo with id=AE,
   - `/foos/creation` is the creation url for posting a new foo object,
   - `/foos/AE/modification` is the modification url for patching an already existing foo entity with id AE.
 
 ## Basic usage with react-final-form and redux-thunk-data
 
-Starting at pathname /foos/AE :
+Make your app starting with `location.pathname="/foos/AE"`.
+
+### React old school:
 
 ```javascript
 import PropTypes from 'prop-types'
@@ -145,7 +155,7 @@ export default compose(
 )(Foo)
 ```
 
-Or do it in the react hooks way:
+### React hooks school
 
 ```javascript
 import PropTypes from 'prop-types'
@@ -238,7 +248,7 @@ const Foo = () => {
         method
       })})
     return formSubmitPromise
-  }, [apiPath, dispatch, getReadOnlyUrl, handleDeactivateForm, history, method])
+  }, [apiPath, dispatch, getReadOnlyUrl, history, method])
 
 
   useEffet(() => {
