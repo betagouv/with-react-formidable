@@ -6,7 +6,7 @@ import useFormidable from './useFormidable'
 export default WrappedComponent => {
   const _withFormidable = props => (
     <WrappedComponent
-      formidable={useFormidable(props.location, props.match, props.name)}
+      formidable={useFormidable(props.location, props.match.params, props.name)}
       {...props}
     />
   )

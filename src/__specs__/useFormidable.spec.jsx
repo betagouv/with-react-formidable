@@ -6,8 +6,8 @@ import useFormidable from '../useFormidable'
 
 const Bar = () => null
 
-const Foo = ({ location, match, name }) => {
-  const formidable = useFormidable(location, match, name)
+const Foo = ({ location, params, name }) => {
+  const formidable = useFormidable(location, params, name)
   return <Bar formidable={formidable} />
 }
 
@@ -20,16 +20,14 @@ describe('useFormidable', () => {
         pathname: "/foos/AE",
         search: ''
       }
-      const match = {
-        params: {
-          fooId: "AE"
-        }
+      const params = {
+        fooId: "AE"
       }
 
       // when
       const wrapper = shallow(<Foo
         location={location}
-        match={match}
+        params={params}
       />)
 
       // then
@@ -55,17 +53,15 @@ describe('useFormidable', () => {
         pathname: "/foos/AE/bars/BF",
         search: ''
       }
-      const match = {
-        params: {
-          barId: "BF",
-          fooId: "AE"
-        }
+      const params = {
+        barId: "BF",
+        fooId: "AE"
       }
 
       // when
       const wrapper = shallow(<Foo
         location={location}
-        match={match}
+        params={params}
       />)
 
       // then
@@ -93,16 +89,14 @@ describe('useFormidable', () => {
         pathname: "/foos/creation",
         search: ''
       }
-      const match = {
-        params: {
-          fooId: "creation"
-        }
+      const params = {
+        fooId: "creation"
       }
 
       // when
       const wrapper = shallow(<Foo
         location={location}
-        match={match}
+        params={params}
       />)
 
       // then
@@ -128,17 +122,15 @@ describe('useFormidable', () => {
         pathname: "/foos/AE/bars/creation",
         search: ''
       }
-      const match = {
-        params: {
-          barId: "creation",
-          fooId: "AE"
-        }
+      const params = {
+        barId: "creation",
+        fooId: "AE"
       }
 
       // when
       const wrapper = shallow(<Foo
         location={location}
-        match={match}
+        params={params}
       />)
 
       // then
@@ -166,17 +158,15 @@ describe('useFormidable', () => {
         pathname: "/foos/AE/modification",
         search: ''
       }
-      const match = {
-        params: {
-          fooId: "AE",
-          modification: "modification"
-        }
+      const params = {
+        fooId: "AE",
+        modification: "modification"
       }
 
       // when
       const wrapper = shallow(<Foo
         location={location}
-        match={match}
+        params={params}
       />)
 
       // then
@@ -202,18 +192,16 @@ describe('useFormidable', () => {
         pathname: "/foos/AE/bars/BF/modification",
         search: ''
       }
-      const match = {
-        params: {
-          barId: "BF",
-          fooId: "AE",
-          modification: "modification"
-        }
+      const params = {
+        barId: "BF",
+        fooId: "AE",
+        modification: "modification"
       }
 
       // when
       const wrapper = shallow(<Foo
         location={location}
-        match={match}
+        params={params}
       />)
 
       // then

@@ -162,14 +162,14 @@ import PropTypes from 'prop-types'
 import React, { useEffect } from 'react'
 import { Field, Form } from 'react-final-form'
 import { useDispatch, useSelector } from 'react-redux'
-import { useLocation, useMatch } from 'react-router-dom'
+import { useLocation, useParams } from 'react-router-dom'
 import { requestData } from 'redux-thunk-data'
 import { useFormidable } from 'with-react-formidable'
 
 const Field = ({ input, readOnly }) => {
   const location = useLocation()
-  const match = useMatch()
-  const { readOnly } = useFormidable(location, match)
+  const params = useParams()
+  const { readOnly } = useFormidable(location, params)
   return (
     <input
       {...input}
@@ -182,8 +182,8 @@ const Field = ({ input, readOnly }) => {
 const FooForm = ({ handleSubmit, modificationUrl, readOnly }) => {
   const history = useHistory()
   const location = useLocation()
-  const match = useMatch()
-  const { modificationUrl, readOnly } = useFormidable(location, match)
+  const params = useParams()
+  const { modificationUrl, readOnly } = useFormidable(location, params)
 
   const handleActivateForm = useCallback(() => {
     history.push(modificationUrl)
@@ -223,14 +223,14 @@ const Foo = () => {
   const dispatch = useDispatch()
   const history = useHistory()
   const location = useLocation()
-  const match = useMatch()
+  const params = useParams()
   const {
     apiPath,
     isCreatedEntity,
     getReadOnlyUrl,
     method,
     readOnly
-  } = useFormidable(location, match)
+  } = useFormidable(location, params)
 
 
   const handleFormSubmit = useCallback(formValues => {

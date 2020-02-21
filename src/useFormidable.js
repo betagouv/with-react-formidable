@@ -22,9 +22,8 @@ const getCollectionName = (modification, name, pathname) => {
 }
 
 
-export default (location, match, name) => {
+export default (location, params, name) => {
   const { pathname, search } = location
-  const { params } = match
   const { modification } = params
   const nameId = name && params[`${name}Id`]
   const id = useMemo(() =>
