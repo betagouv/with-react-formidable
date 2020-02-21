@@ -1,6 +1,5 @@
 import pluralize from 'pluralize'
 import React, { useMemo } from 'react'
-import { createSelector } from 'reselect'
 
 const CREATION = "creation"
 const MODIFICATION = "modification"
