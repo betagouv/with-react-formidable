@@ -24,9 +24,9 @@ Then :
 
 ## Basic usage with react-final-form and redux-thunk-data
 
-Make your app starting with `location.pathname="/foos/AE"`.
+Make your app starting at `location.pathname="/foos/AE"`.
 
-### React old school:
+### react old school
 
 ```javascript
 import PropTypes from 'prop-types'
@@ -155,7 +155,7 @@ export default compose(
 )(Foo)
 ```
 
-### React hooks school
+### react hooks school
 
 ```javascript
 import PropTypes from 'prop-types'
