@@ -1,32 +1,17 @@
-version: 2.0
-
+version: 2.1
+orbs:
+  node: circleci/node@1.1.6
 jobs:
-  build:
-    docker:
-      - image: circleci/node:latest
-    working_directory: ~/with-react-form-ci
+  build-and-test:
+    executor:
+      name: node/default
     steps:
       - checkout
-      # https://circleci.com/docs/2.0/yarn/
-      - restore_cache:
-          name: Restore Yarn Package Cache
-          keys:
-            - yarn-packages-{{ checksum "yarn.lock" }}
-      - run:
-          name: Install Dependencies
-          command: yarn install --frozen-lockfile
-      - save_cache:
-          name: Save Yarn Package Cache
-          key: yarn-packages-{{ checksum "yarn.lock" }}
-          paths:
-            - ~/.cache/yarn
-      - run:
-          name: Running Tests
-          command: |
-            yarn test
-
+      - node/with-cache:
+          steps:
+            - run: npm install
+            - run: npm test
 workflows:
-  version: 2
-  commit:
-    jobs:
-      - build
+    build-and-test:
+      jobs:
+        - build-and-test
