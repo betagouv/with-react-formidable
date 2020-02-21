@@ -76,7 +76,7 @@ class Foo extends PureComponent {
   }
 
   renderField = ({ input }) => {
-    const { form } = this.props
+    const { formidable } = this.props
     const { readOnly } = formidable
     return (
       <input
@@ -136,7 +136,7 @@ Foo.propTypes = {
   foo: PropTypes.shape({
     title: PropTypes.string.isRequired
   }),
-  form: PropTypes.shape({
+  formidable: PropTypes.shape({
     apiPath: PropTypes.string,
     getReadOnlyUrl: PropTypes.func,
     isCreatedEntity: PropTypes.bool,
