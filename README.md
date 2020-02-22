@@ -166,7 +166,7 @@ import { useLocation, useParams } from 'react-router-dom'
 import { requestData } from 'redux-thunk-data'
 import { useFormidable } from 'with-react-formidable'
 
-const Field = ({ input, readOnly }) => {
+const FooField = ({ input }) => {
   const location = useLocation()
   const params = useParams()
   const { readOnly } = useFormidable(location, params)
@@ -179,7 +179,7 @@ const Field = ({ input, readOnly }) => {
   )
 }
 
-const FooForm = ({ handleSubmit, modificationUrl, readOnly }) => {
+const FooForm = ({ handleSubmit }) => {
   const history = useHistory()
   const location = useLocation()
   const params = useParams()
@@ -189,14 +189,12 @@ const FooForm = ({ handleSubmit, modificationUrl, readOnly }) => {
     history.push(modificationUrl)
   }, [history, modificationUrl])
 
-  const renderField = useCallback(props =>
-    <Field readOnly={readOnly} {...props} />, [readOnly])
 
   return (
     <form onSubmit={handleSubmit}>
       <Field
         name="title"
-        render={renderField}
+        render={FooField}
       />
       {
         readOnly
