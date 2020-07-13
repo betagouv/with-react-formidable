@@ -45,7 +45,7 @@ export default (location, params, name) => {
     apiPath = `/${collectionName}`
     creationUrl = `${pathname}${search}`
     method = "POST"
-    getReadOnlyUrl = createdId => `${pathname.replace(`/${CREATION}`, `/${createdId}`)}${search}`
+    getReadOnlyUrl = createdId => `${pathname.replace(`/${CREATION}`, createdId ? `/${createdId}` : '')}${search}`
   } else if (isModifiedEntity) {
     apiPath = `/${collectionName}/${id}`
     creationUrl = `${pathname.replace(`/${id}/${MODIFICATION}`, '')}/${CREATION}${search}`
