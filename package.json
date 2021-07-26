@@ -6,6 +6,7 @@
   "license": "MPL-2.0",
   "description": "A small wrapper of react-router parsing the form params from the location.search",
   "dependencies": {
+    "fetch-normalize-data": "1.21.6",
     "pluralize": "^8.0.0",
     "prop-types": "^15.6.2",
     "react": "^16.9.0",
@@ -41,7 +42,7 @@
     "react-test-renderer": "^16.5.1",
     "redux": "^4.0.4",
     "redux-thunk": "^2.3.0",
-    "redux-thunk-data": "1.5.1"
+    "redux-thunk-data": "1.21.6"
   },
   "keywords": [
     "form",
